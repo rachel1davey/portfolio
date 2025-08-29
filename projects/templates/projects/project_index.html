@@ -11,7 +11,10 @@
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ project.title }}</h5>
-                    <p class="card-text">{{ project.description }}</p>
+                    <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+                    {% if project.technology %}
+                        <p class="card-text"><strong>Technologies:</strong> {{ project.technology }}</p>
+                    {% endif %}
                     <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary">
                         Read More
                     </a>
